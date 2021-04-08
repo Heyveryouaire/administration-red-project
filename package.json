@@ -1,0 +1,23 @@
+{
+  "name": "administration-red-project",
+  "version": "1.0.0",
+  "description": "Administration app using electron",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Heyveryouaire/administration-red-project.git"
+  },
+  "author": "PaAuMa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Heyveryouaire/administration-red-project/issues"
+  },
+  "homepage": "https://github.com/Heyveryouaire/administration-red-project#readme",
+  "dependencies": {
+    "electron": "^12.0.2"
+  }
+}
