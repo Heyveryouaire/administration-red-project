@@ -1,22 +1,18 @@
-// import des pages
 import pages from "./loadPages.js"
+import loginComponent from "./components/login.js"
+import homeComponent from "./components/home.js"
 
-// import des id button (menu)
 const main = document.getElementById("main")
-const home = document.getElementById("home")
-const login = document.getElementById("login")
 
 async function init(){
     // destructuring each pages
-    const { login_example, accueil } = await pages()
-
-    // change dom content on click
-    home.addEventListener("click", async () => {
-        main.innerHTML = accueil
-    })
+    const { login_example, home } = await pages()
     
-    login.addEventListener("click", async() => {
-        main.innerHTML = login_example
-    })
+    // default page :
+    main.innerHTML = home
+    // Call component's page
+    // send the page as paramse
+    homeComponent(home)
+    loginComponent(login_example)
 
 }init()

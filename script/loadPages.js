@@ -1,15 +1,16 @@
 const fs = require("fs").promises
 
 const pages = async () => {
-    // for each pages to add: add following lines :
-    const login_example = await fs.readFile("./pages/login.html", { encoding: "utf-8"})
-    const accueil = await fs.readFile("./pages/accueil.html", { encoding: "utf-8"})
-    
-    // and export right here
-   return { 
-    accueil, 
-    login_example
-   }
+    // function autoload pages, and export them with the name of the file
+    const listPages = await fs.readdir("./pages")
+    const objPage = {}
+
+    const ps = listPages.map(async page => {
+        objPage[page.replace(".html", "")] = await fs.readFile(`./pages/${page}`, { encoding: "utf-8" })
+    })
+
+    await Promise.all(ps)
+    return { ...objPage }
 }
 
-export default pages 
+export default pages
