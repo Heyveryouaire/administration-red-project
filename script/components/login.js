@@ -1,4 +1,4 @@
-function test_login(){
+function test_login() {
     console.log("Log ...")
 }
 
