@@ -12,14 +12,14 @@ async function init() {
     // destructuring each pages
     const { login_example, home, addTeam, connexion, newGame } = await pages()
     console.log("ipceree", ipcRenderer)
-    
+
     // default page :
     main.innerHTML = home
     // Call component's page
     // send the page as paramse
     homeComponent(home)
     addTeamComponent(addTeam)
-    loginComponent(connexion)
+    loginComponent(connexion, home)
     newGameComponent(newGame)
 
 } init()

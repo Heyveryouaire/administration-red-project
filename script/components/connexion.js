@@ -6,7 +6,7 @@ function test_login() {
 }
 
 
-const connexion = (connexion) => {
+const connexion = (connexion, next) => {
     const login = document.getElementById("login")
 
     login.addEventListener("click", async () => {
@@ -51,7 +51,14 @@ const connexion = (connexion) => {
                     method: 'POST',
                     body: JSON.stringify({ "login": username, "password": password })
                 })
-                    .then(resp => console.log(resp))
+                    //.then(resp => console.log(resp.json()))
+                    .then(resp => resp.json())
+                    .then(data => {
+                        console.log(data);
+                        main.innerHTML = next;
+
+
+                    })
                     .catch((error) => {
                         console.log('Problème avec Fetch: ', error);
                     });
