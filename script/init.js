@@ -20,6 +20,6 @@ async function init() {
     homeComponent(home)
     addTeamComponent(addTeam)
     loginComponent(connexion)
-    newGameComponent(newGame)
+    newGameComponent(newGame, addTeam)
 
 } init()
