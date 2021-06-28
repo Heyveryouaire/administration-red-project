@@ -1,4 +1,4 @@
-const init = (addTeam) => {
+const init = (addTeam, next) => {
     const addTeamPage = document.getElementById("addTeam")
 
     const players = [{ id: 1, name: "charles" }, { id: 2, name: "antoine" }]
@@ -20,6 +20,8 @@ const init = (addTeam) => {
     addTeamPage.addEventListener("click", async () => {
         // once the page is set, we can interact with DOM element
         main.innerHTML = addTeam
+
+
 
         const form = document.getElementById("form")
         const validPlayer = document.getElementById("validPlayer")
@@ -43,6 +45,8 @@ const init = (addTeam) => {
             }
 
             // value en envoyer a un fetch ...
+
+        main.innerHTML = next
 
 
             // console.log('e : ', e.target.teamName.value)
