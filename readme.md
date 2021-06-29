@@ -10,7 +10,27 @@ npm start
 ```
 
 ### Add new pages
-* Create new pages in /pages folder
-* Create his components in /script/components/
-* The page will be available in the page function and
-* Call the component and pass page as param
+* Create file page in ```/pages ``` folder
+* Create logical component in ```/script/components``` folder
+* Load component in ```init.js```, and pass as params page name
+
+Example: 
+```sh
+/pages
+    - nameofPage.html
+/script
+    /components
+        - nameOfComponent.js
+```
+
+init.js
+```js
+import nameOfComponent from './components/nameOfComponent.js'
+...
+const { nameOfPage } = await pages()
+...
+nameOfComponent(nameOfPage)
+```
+
+### Wireframe
+https://www.figma.com/file/vhCdwwt7CCKHjr88oe33so/Fil-rouge-React?node-id=0%3A1
