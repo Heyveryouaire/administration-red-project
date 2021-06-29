@@ -6,7 +6,7 @@ function test_login() {
 }
 
 
-const connexion = (connexion) => {
+const connexion = (connexion, next) => {
     const login = document.getElementById("login")
 
     login.addEventListener("click", async () => {
@@ -14,7 +14,7 @@ const connexion = (connexion) => {
         test_login()
         main.innerHTML = connexion
 
-        //Formuliare de connexion
+        //Formulaire de connexion
         const form = document.querySelector("form")
 
         form.addEventListener('submit', (e) => {
@@ -26,7 +26,6 @@ const connexion = (connexion) => {
             //check si les champs sont correctement remplis (regex)
             if (username == "" || password == "") {
                 console.log('error');
-
             }
             else {
                 //requete https envoi vers API
@@ -51,7 +50,15 @@ const connexion = (connexion) => {
                     method: 'POST',
                     body: JSON.stringify({ "login": username, "password": password })
                 })
-                    .then(resp => console.log(resp))
+                    //.then(resp => console.log(resp.json()))
+                    .then(resp => resp.json())
+                    .then(data => {
+                        console.log(data);
+                        main.innerHTML = next;
+                        //stocker le token reçu dans le local stoarge et redireiger vers la home
+
+
+                    })
                     .catch((error) => {
                         console.log('Problème avec Fetch: ', error);
                     });
