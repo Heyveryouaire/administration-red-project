@@ -18,11 +18,8 @@ async function init() {
     // Call component's page
     // send the page as paramse
     homeComponent(home)
-
-   
     addTeamComponent(addTeam, home)
-    loginComponent(connexion)
-
+    loginComponent(connexion, home)
     newGameComponent(newGame)
 
 } init()

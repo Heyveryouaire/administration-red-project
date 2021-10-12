@@ -9,6 +9,8 @@ function test_login() {
 const connexion = (connexion, next) => {
     const login = document.getElementById("login")
 
+    console.log('next:', next);
+
     login.addEventListener("click", async () => {
         // once the page is set, we can interact with DOM element
         test_login()
@@ -41,9 +43,9 @@ const connexion = (connexion, next) => {
                 // request.on('login', (authInfo, callback) => {
                 //     callback('username', 'password')
                 // })
-                //au clic affichage des departements
 
-                fetch('http://127.0.0.1:3001/auth', {
+
+                fetch('http://localhost:3000/auth', {
                     headers: {
                         'Content-Type': 'application/json'
                     },
