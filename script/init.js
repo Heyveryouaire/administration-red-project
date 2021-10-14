@@ -14,12 +14,12 @@ async function init() {
     console.log("ipceree", ipcRenderer)
 
     // default page :
-    main.innerHTML = home
+    main.innerHTML = connexion
     // Call component's page
     // send the page as paramse
-    homeComponent(home)
+    //homeComponent(home)
     addTeamComponent(addTeam, home)
-    loginComponent(connexion, home)
+    loginComponent(connexion, addTeam)
     newGameComponent(newGame)
 
 } init()
