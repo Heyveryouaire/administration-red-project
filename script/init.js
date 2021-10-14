@@ -17,9 +17,9 @@ async function init() {
     main.innerHTML = connexion
     // Call component's page
     // send the page as paramse
-    //homeComponent(home)
+    homeComponent(home)
     addTeamComponent(addTeam, home)
-    loginComponent(connexion, addTeam)
+    loginComponent(connexion, home)
     newGameComponent(newGame)
 
 } init()

@@ -57,11 +57,12 @@ const connexion = (connexion, next) => {
                     .then(data => {
                         console.log(data);
 
-                        //stocker le token reçu dans le local stoarge et redireiger vers la home si admin  =1
+                        //stocker le token reçu dans une session storage et rediriger vers la home si admin  =1
                         let tokenAdmin = '';
                         if (data.token) {
                             main.innerHTML = next;
-                            tokenAdmin = data.token;
+                            myStorage = window.sessionStorage;
+                            sessionStorage.setItem('tokenadmin', data.token);
                         }
                         else {
 
