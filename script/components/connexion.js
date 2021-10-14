@@ -56,8 +56,16 @@ const connexion = (connexion, next) => {
                     .then(resp => resp.json())
                     .then(data => {
                         console.log(data);
-                        main.innerHTML = next;
-                        //stocker le token reçu dans le local stoarge et redireiger vers la home
+
+                        //stocker le token reçu dans le local stoarge et redireiger vers la home si admin  =1
+                        let tokenAdmin = '';
+                        if (data.token) {
+                            main.innerHTML = next;
+                            tokenAdmin = data.token;
+                        }
+                        else {
+
+                        }
 
 
                     })
