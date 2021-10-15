@@ -1,8 +1,9 @@
-const init = (home) => {
-    const h = document.getElementById("home")
+const init = (main, { pages, scripts }) => {
+    const newGame = document.getElementById("newGame");
 
-    h.addEventListener("click", async () => {
-        main.innerHTML = home
+    newGame.addEventListener("click", async () => {
+        main.innerHTML = pages.newGame;
+        scripts.newGameComponent(main, { pages, scripts });
     })
 }
 export default init

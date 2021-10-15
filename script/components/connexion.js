@@ -6,15 +6,15 @@ function test_login() {
 }
 
 
-const connexion = (connexion, next) => {
+const connexion = (main, { pages, scripts }) => {
     const login = document.getElementById("login")
 
-    console.log('next:', next);
+
 
     login.addEventListener("click", async () => {
         // once the page is set, we can interact with DOM element
         test_login()
-        main.innerHTML = connexion
+        //main.innerHTML = connexion
 
         //Formulaire de connexion
         const form = document.querySelector("form")
@@ -60,18 +60,26 @@ const connexion = (connexion, next) => {
                         //stocker le token reçu dans une session storage et rediriger vers la home si admin  =1
                         let tokenAdmin = '';
                         if (data.token) {
-                            main.innerHTML = next;
-                            myStorage = window.sessionStorage;
+                            main.innerHTML = pages.home;
+                            scripts.homeComponent(main, { pages, scripts });
+                            let myStorage = window.sessionStorage;
                             sessionStorage.setItem('tokenadmin', data.token);
                         }
-                        else {
 
+                        if (data && data.message) {
+
+                            let divMessage = document.getElementById('message');
+                            console.log('divMessage', divMessage);
+                            divMessage.classList.remove('hidden')
+                            let h3 = document.createElement('h3');
+                            h3.textContent = data.message;
+                            divMessage.appendChild(h3);
                         }
-
 
                     })
                     .catch((error) => {
                         console.log('Problème avec Fetch: ', error);
+
                     });
 
                 //

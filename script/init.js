@@ -8,18 +8,36 @@ const { ipcRenderer } = require('electron')
 
 const main = document.getElementById("main")
 
+
 async function init() {
     // destructuring each pages
-    const { login_example, home, addTeam, connexion, newGame } = await pages()
-    console.log("ipceree", ipcRenderer)
+    const {
+        home,
+        addTeam,
+        connexion,
+        newGame
+    } = await pages()
+
 
     // default page :
     main.innerHTML = connexion
-    // Call component's page
-    // send the page as paramse
-    homeComponent(home)
-    addTeamComponent(addTeam, home)
-    loginComponent(connexion, home)
-    newGameComponent(newGame)
+    loginComponent(main, {
+        pages: {
+            home: home,
+            addTeam,
+            newGame,
+            connexion
+        },
+        scripts: {
+            homeComponent: homeComponent,
+            loginComponent: loginComponent,
+            newGameComponent: newGameComponent,
+            addTeamComponent: addTeamComponent,
+        }
+    })
+
+
+
+
 
 } init()
