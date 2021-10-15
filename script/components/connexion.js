@@ -28,6 +28,14 @@ const connexion = (main, { pages, scripts }) => {
             //check si les champs sont correctement remplis (regex)
             if (username == "" || password == "") {
                 console.log('error');
+
+                let divMessage = document.getElementById('message');
+                console.log('divMessage', divMessage);
+                divMessage.classList.remove('hidden')
+                let h3 = document.createElement('h3');
+                h3.textContent = 'Mot de passe ou identifiant manquant';
+
+                divMessage.appendChild(h3);
             }
             else {
                 //requete https envoi vers API
@@ -70,6 +78,7 @@ const connexion = (main, { pages, scripts }) => {
 
                             let divMessage = document.getElementById('message');
                             console.log('divMessage', divMessage);
+                            divMessage.innerHTML = '';
                             divMessage.classList.remove('hidden')
                             let h3 = document.createElement('h3');
                             h3.textContent = data.message;
